@@ -13,31 +13,9 @@ import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-object LogUtils {
+object LogUtil {
 
-    private val TOP_LINE = "" +
-            "\n^^^^^^^^^^^^^less code,less bug^^^^^^^^^^^^^^\n" +
-            "                   _ooOoo_\n" +
-            "                  o8888888o\n" +
-            "                  88\" . \"88\n" +
-            "                  (| -_- |)\n" +
-            "                  O\\  =  /O\n" +
-            "               ____/`---'\\____\n" +
-            "             .'  \\\\|     |//  `.\n" +
-            "            /  \\\\|||  :  |||//  \\\n" +
-            "           /  _||||| -:- |||||-  \\\n" +
-            "           |   | \\\\\\  -  /// |   |\n" +
-            "           | \\_|  ''\\---/''  |   |\n" +
-            "           \\  .-\\__  `-`  ___/-. /\n" +
-            "         ___`. .'  /--.--\\  `. . __\n" +
-            "      .\"\" '<  `.___\\_<|>_/___.'  >'\"\".\n" +
-            "     | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |\n" +
-            "     \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /\n" +
-            "======`-.____`-.___\\_____/___.-`____.-'======\n" +
-            "                   `=---='\n" +
-            "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n" +
-            "            佛祖保佑       永无BUG\n" +
-            "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+
 
     private val TOP_BORDER =
         "╔══════════════════════════════════════════════════════════════════════════════════════════════════════════"
@@ -52,16 +30,15 @@ object LogUtils {
     private val execu: ExecutorService = Executors.newFixedThreadPool(1)
 
     init {
-        Log.e("LogUtils", TOP_LINE)
         initLogFile()
     }
 
 
-    fun v(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.VERBOSE)
-    fun d(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.DEBUG)
-    fun i(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.INFO)
-    fun w(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.WARN)
-    fun e(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.ERROR)
+    fun v(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.VERBOSE)
+    fun d(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.DEBUG)
+    fun i(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.INFO)
+    fun w(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.WARN)
+    fun e(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.ERROR)
 
 
     private fun targetStackTraceMSg(): String {
@@ -78,7 +55,7 @@ object LogUtils {
         var shouldTrace = false
         val stackTrace = Thread.currentThread().stackTrace
         for (stackTraceElement in stackTrace) {
-            val isLogMethod = stackTraceElement.className == LogUtils::class.java.name
+            val isLogMethod = stackTraceElement.className == LogUtil::class.java.name
             if (shouldTrace && !isLogMethod) {
                 targetStackTrace = stackTraceElement
                 break
@@ -174,8 +151,8 @@ object LogUtils {
      * 是否打印log输出
      * @param debug
      */
-    fun debug(debug: Boolean): LogUtils {
-        LogUtils.debug = debug
+    fun debug(debug: Boolean): LogUtil {
+        LogUtil.debug = debug
         return this
     }
 
@@ -183,8 +160,8 @@ object LogUtils {
      * 是否保存到sd卡
      * @param savesd
      */
-    fun saveSd(savesd: Boolean): LogUtils {
-        LogUtils.savesd = savesd
+    fun saveSd(savesd: Boolean): LogUtil {
+        LogUtil.savesd = savesd
         return this
     }
 
@@ -192,8 +169,8 @@ object LogUtils {
      * 设置每个log的文件大小
      * @param logSize 文件大小 byte
      */
-    fun logSize(logSize: Long): LogUtils {
-        LogUtils.logSize = logSize
+    fun logSize(logSize: Long): LogUtil {
+        LogUtil.logSize = logSize
         return this
 
     }
@@ -202,8 +179,8 @@ object LogUtils {
      * 设置log文件目录
      * @param logDir 文件目录
      */
-    fun logDir(logDir: String): LogUtils {
-        LogUtils.logDir = logDir
+    fun logDir(logDir: String): LogUtil {
+        LogUtil.logDir = logDir
         return this
     }
 
