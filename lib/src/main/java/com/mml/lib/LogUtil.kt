@@ -124,6 +124,7 @@ object LogUtil {
         if (!this) {
             return
         }
+        FileUtil.mkDirs(logDir)
         execu.submit {
             val data = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date()) + "_$level"
             var files = FileUtil.sortByTime(File(logDir))?.filter { it.name.contains(data) }

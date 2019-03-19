@@ -1,4 +1,6 @@
 # EasyUtils
+- 2019-3-19 
+  - 修复logutil的bug
 - 2019-3-18 
   - 新增[FileUtil](./lib/src/main/java/com/mml/lib/FileUtil.kt)
   - [LogUtil](./lib/src/main/java/com/mml/lib/LogUtil.kt)
