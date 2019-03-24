@@ -2,6 +2,8 @@ apply plugin: 'java-library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'kotlin'
 group='com.github.mamenglong'
+project.archivesBaseName ='java'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //retrofit2
@@ -13,5 +15,5 @@ dependencies {
 
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"

@@ -1,4 +1,4 @@
-package com.mml.adbwifidebug.utils
+package com.mml.android
 
 /**
  * 项目名称：EasyUtils
@@ -6,7 +6,6 @@ package com.mml.adbwifidebug.utils
  * 修改时间：2019/3/18 15:45
  */
 import android.util.Log
-import com.mml.lib.FileUtil
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*

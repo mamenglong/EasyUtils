@@ -1,9 +1,7 @@
 package com.mml.easyutils
 
-import android.content.Context
 import com.mml.easyutils.api.WeatherService
-import com.mml.lib.SharedPreferencesUtil
-import com.mml.lib.network.ServiceCreator
+import com.mml.android.network.ServiceCreator
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

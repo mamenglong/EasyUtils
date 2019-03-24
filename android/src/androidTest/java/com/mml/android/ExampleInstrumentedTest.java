@@ -1,4 +1,4 @@
-package com.mml.lib;
+package com.mml.android;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;

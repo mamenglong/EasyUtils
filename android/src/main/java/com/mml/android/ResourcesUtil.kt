@@ -1,4 +1,4 @@
-package com.mml.lib
+package com.mml.android
 
 /**
  * 获取资源

@@ -1,11 +1,8 @@
-package com.mml.lib
+package com.mml.android
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.Bundle
-import android.os.PersistableBundle
 import android.preference.PreferenceManager
-import androidx.appcompat.app.AppCompatActivity
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 

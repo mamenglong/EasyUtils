@@ -1,4 +1,4 @@
-package com.mml.lib
+package com.mml.android
 
 /**
  * 时间管理
@@ -6,10 +6,10 @@ package com.mml.lib
  * Created by Long on 2019/3/18.
  * 修改时间：2019/3/18 14:07
  */
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
-import java.text.ParseException
 
 object TimeUtil {
 

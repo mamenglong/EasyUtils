@@ -1,4 +1,4 @@
-package com.mml.lib.network
+package com.mml.android.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

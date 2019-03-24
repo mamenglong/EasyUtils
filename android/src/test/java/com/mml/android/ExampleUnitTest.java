@@ -1,6 +1,5 @@
-package com.mml.lib;
+package com.mml.android;
 
-import com.mml.lib.network.ServiceCreator;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

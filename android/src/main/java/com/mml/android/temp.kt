@@ -1,4 +1,4 @@
-package com.mml.lib
+package com.mml.android
 
 /**
  * 项目名称：EasyUtils

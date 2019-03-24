@@ -1,4 +1,4 @@
-package com.mml.lib
+package com.mml.android
 
 /**
  * 文件操作工具类
