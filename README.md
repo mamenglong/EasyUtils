@@ -46,7 +46,7 @@
       - fun setIsUseLoggingInterceptor(isUse: Boolean)
     - 调用实例
       ```
-      ServiceCreator
+            ServiceCreator
                   .setIsUseLoggingInterceptor(true)
                   .setTimeOut(20L)
                   .setBaseURL(WeatherService.BASE_URL)
@@ -54,6 +54,22 @@
                   .getWeatherData(101210101)
                   .execute()
                   .body()
+                  
+         //异步
+            ServiceCreator
+                 .setIsUseLoggingInterceptor(true)
+                 .setTimeOut(20L)
+                 .setBaseURL(BingInterface.BingService.BASE_URL)
+                 .create(BingInterface.BingService::class.java)
+                 .getImageInfo(-1,1).enqueue(object :Callback<Images>(){
+                      override fun onFailure(call: Call<Images>,
+                      t: Throwable) {
+                         TODO("not implemented")  
+                     }
+                     override fun onResponse(call: Call<Images>, response: Response<Images>) {
+                         TODO("not implemented")  
+                     }
+              })
       ```
       [参考测试类](./app/src/test/java/com/mml/easyutils/ExampleUnitTest.kt)
   - LogUtil封装

@@ -26,9 +26,7 @@ open class SharedPreferencesUtil(context: Context) {
         fun getInstance(context: Context): SharedPreferencesUtil? {
             if (instances == null) {
                 synchronized(SharedPreferencesUtil::class) {
-                    if (instances == null) {
                         instances = SharedPreferencesUtil(context)
-                    }
                 }
             }
             return instances

@@ -1,0 +1,17 @@
+apply plugin: 'java-library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'kotlin'
+group='com.github.mamenglong'
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
