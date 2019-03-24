@@ -17,7 +17,9 @@
         - Step 2. Add the dependency
             ```
                 dependencies {
-                        implementation 'com.github.mamenglong:EasyUtils:Tag'
+                        implementation 'com.github.mamenglong:EasyUtils:android:Tag'
+                        or
+                        implementation 'com.github.mamenglong:EasyUtils:java:Tag'
                 }
             ```    
     - maven

@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.mamenglong'
+//project.group='com.github.mamenglong:EasyUtils'
 project.archivesBaseName ='android'
 android {
     compileSdkVersion 28

@@ -1,7 +1,7 @@
 apply plugin: 'java-library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'kotlin'
-group='com.github.mamenglong'
+//group='com.github.mamenglong'
 project.archivesBaseName ='java'
 
 dependencies {
