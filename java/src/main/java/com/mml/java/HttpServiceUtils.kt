@@ -14,7 +14,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.sql.DriverManager.println
 import java.util.concurrent.TimeUnit
 
-object HttpService {
+object HttpServiceUtils {
 
     private var BASE_URL: String = ""
     private val httpClient = OkHttpClient.Builder()
@@ -28,7 +28,7 @@ object HttpService {
      * 设置连接超时时间默认20s,此函数需在create（）之前调用
      * @param time
      */
-    fun setTimeOut(time: Long): HttpService {
+    fun setTimeOut(time: Long): HttpServiceUtils {
         DEFAULT_TIMEOUT = time
         httpClient.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
         return this
@@ -38,7 +38,7 @@ object HttpService {
      * 设置base url
      * @param url
      */
-    fun setBaseURL(url: String): HttpService {
+    fun setBaseURL(url: String): HttpServiceUtils {
         BASE_URL = url
         builder.baseUrl(BASE_URL)
         return this
@@ -50,7 +50,7 @@ object HttpService {
      * 是否设置链接日志过滤,此函数需在create（）之前调用
      * @param isUse
      */
-    fun setIsUseLoggingInterceptor(isUse: Boolean): HttpService {
+    fun setIsUseLoggingInterceptor(isUse: Boolean): HttpServiceUtils {
         httpClient.addInterceptor(
             HttpLoggingInterceptor(
                 HttpLoggingInterceptor

@@ -1,4 +1,4 @@
-package com.mml.android
+package com.mml.android.utils
 
 /**
  * 获取资源
@@ -8,7 +8,7 @@ package com.mml.android
  */
 import android.content.Context
 
-object ResourcesUtil {
+object ResourcesUtils {
     fun getIdResources(context: Context, idName: String): Int = context.getResourcesId(idName, "id")
 
     fun getDrawableResources(context: Context, drawableName: String): Int =

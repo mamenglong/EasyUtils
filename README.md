@@ -17,9 +17,9 @@
         - Step 2. Add the dependency
             ```
                 dependencies {
-                        implementation 'com.github.mamenglong:EasyUtils:android:Tag'
+                        implementation 'com.github.mamenglong.EasyUtils:android:Tag'
                         or
-                        implementation 'com.github.mamenglong:EasyUtils:java:Tag'
+                        implementation 'com.github.mamenglong.EasyUtils:java:Tag'
                 }
             ```    
     - maven
@@ -35,11 +35,53 @@
       -  Step 2. Add the dependency 
           ``` 
           <dependency>
-              <groupId>com.github.mamenglong</groupId>
-              <artifactId>EasyUtils</artifactId>
+              <groupId>com.github.mamenglong.EasyUtils</groupId>
+              <artifactId>android/java</artifactId>
               <version>Tag</version>
           </dependency>
           ```
+
+- 初始化 
+  - Configure UtilsApplication 
+    - You don't want to pass the Context param all the time. To makes
+      the APIs simple, just configure the EasyUtilsApplication in
+      AndroidManifest.xml as below:
+        ```
+        <manifest>
+            <application
+                android:name="com.mml.android.EasyUtilsApplication"
+                ...
+            >
+                ...
+            </application>
+        </manifest>
+        ```
+    - Of course you may have your own Application and has already
+      configured here, like:
+        ``` 
+            <manifest>
+             <application
+            android:name="com.example.MyOwnApplication" ... > 
+            ... 
+            </application>
+            </manifest> 
+        ``` 
+That's OK. Utils can still live with that. Just call
+EasyUtils.initialize(context) in your own Application:
+
+    ```java
+        public class MyOwnApplication extends Application {
+        
+            @Override
+            public void onCreate() {
+                super.onCreate();
+                EasyUtilsApplication.initialize(this);
+            }
+        }
+    ```
+
+Make sure to call this method as early as you can. In the onCreate() method of Application will be fine. And always remember to use the application context as parameter. Do not use any instance of activity or service as parameter, or memory leaks might happen.
+
 - 功能
   - Retrofit2封装
     - 自定义方法
@@ -48,7 +90,7 @@
       - fun setIsUseLoggingInterceptor(isUse: Boolean)
     - 调用实例
       ```
-            ServiceCreator
+            HttpService
                   .setIsUseLoggingInterceptor(true)
                   .setTimeOut(20L)
                   .setBaseURL(WeatherService.BASE_URL)
@@ -58,7 +100,7 @@
                   .body()
                   
          //异步
-            ServiceCreator
+            HttpService
                  .setIsUseLoggingInterceptor(true)
                  .setTimeOut(20L)
                  .setBaseURL(BingInterface.BingService.BASE_URL)
@@ -100,4 +142,6 @@
           ```
   - ResourcesUtil，FileUtil
     - 使用参考类
-      
+  - DeviceUtils ：设备相关方法
+  - ShellUtils：执行命令
+  - WIFIUtils:检测网络

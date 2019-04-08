@@ -1,4 +1,4 @@
-package com.mml.android
+package com.mml.android.utils
 
 /**
  * 文件操作工具类
@@ -9,7 +9,7 @@ package com.mml.android
 import android.os.Environment
 import java.io.*
 
-object FileUtil {
+object FileUtils {
 
     /**
      * 获取根目录

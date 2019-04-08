@@ -1,4 +1,4 @@
-package com.mml.android
+package com.mml.android.utils
 
 /**
  * 项目名称：EasyUtils
@@ -12,7 +12,7 @@ import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-object LogUtil {
+object LogUtils {
 
 
     private val TOP_BORDER =
@@ -32,11 +32,11 @@ object LogUtil {
     }
 
 
-    fun v(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.VERBOSE)
-    fun d(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.DEBUG)
-    fun i(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.INFO)
-    fun w(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.WARN)
-    fun e(tag: String = "LogUtil", msg: String) = debug.log(tag, msg, Log.ERROR)
+    fun v(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.VERBOSE)
+    fun d(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.DEBUG)
+    fun i(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.INFO)
+    fun w(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.WARN)
+    fun e(tag: String = "LogUtils", msg: String) = debug.log(tag, msg, Log.ERROR)
 
 
     private fun targetStackTraceMSg(): String {
@@ -53,7 +53,7 @@ object LogUtil {
         var shouldTrace = false
         val stackTrace = Thread.currentThread().stackTrace
         for (stackTraceElement in stackTrace) {
-            val isLogMethod = stackTraceElement.className == LogUtil::class.java.name
+            val isLogMethod = stackTraceElement.className == LogUtils::class.java.name
             if (shouldTrace && !isLogMethod) {
                 targetStackTrace = stackTraceElement
                 break
@@ -65,7 +65,7 @@ object LogUtil {
 
 
     private fun initLogFile() {
-        logDir = "${FileUtil.getRootDir()}/Logs"
+        logDir = "${FileUtils.getRootDir()}/Logs"
     }
 
     private fun Boolean.log(tag: String, msg: String, type: Int) {
@@ -78,7 +78,10 @@ object LogUtil {
                     msg,
                     targetStackTraceMSg()
                 )
-                Log.e(tag, msgFormat(msg, targetStackTraceMSg()))
+                Log.e(
+                    tag,
+                    msgFormat(msg, targetStackTraceMSg())
+                )
             }
             return
         }
@@ -126,30 +129,30 @@ object LogUtil {
         if (!this) {
             return
         }
-        FileUtil.mkDirs(logDir)
+        FileUtils.mkDirs(logDir)
         execu.submit {
             val tag = "time=${SimpleDateFormat(
                 "yyyy-MM-dd HH:mm:ss",
                 Locale.US
             ).format(Date())}\nfilter=$TAG\nlocation=$targetStackTraceMSg"
             val data = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date()) + "_$level"
-            val files = FileUtil.sortByTime(File(logDir))?.filter { it.name.contains(data) }
+            val files = FileUtils.sortByTime(File(logDir))?.filter { it.name.contains(data) }
             val filepath: String
             if (files != null && files.isNotEmpty()) {
-                val length: Long = FileUtil.getLeng(files[0])
+                val length: Long = FileUtils.getLeng(files[0])
                 if (length > logSize) {
                     val id = files[0].name.replace("${data}_", "").replace(".log", "").toInt() + 1
                     filepath = "$logDir/${data}_$id.log"
-                    FileUtil.creatFile(filepath)
+                    FileUtils.creatFile(filepath)
                 } else {
                     filepath = files[0].absolutePath
                 }
             } else {
                 filepath = "$logDir/${data}_1.log"
-                FileUtil.creatFile(filepath)
+                FileUtils.creatFile(filepath)
             }
             val split = "------------------------------"
-            FileUtil.appendText(File(filepath), "\r\n$tag\nmsg=$msg\n$split")
+            FileUtils.appendText(File(filepath), "\r\n$tag\nmsg=$msg\n$split")
         }
 
     }
@@ -159,8 +162,8 @@ object LogUtil {
      * 是否打印log输出
      * @param debug
      */
-    fun debug(debug: Boolean): LogUtil {
-        LogUtil.debug = debug
+    fun debug(debug: Boolean): LogUtils {
+        LogUtils.debug = debug
         return this
     }
 
@@ -168,8 +171,8 @@ object LogUtil {
      * 是否保存到sd卡
      * @param savesd
      */
-    fun saveSd(savesd: Boolean): LogUtil {
-        LogUtil.savesd = savesd
+    fun saveSd(savesd: Boolean): LogUtils {
+        LogUtils.savesd = savesd
         return this
     }
 
@@ -177,8 +180,8 @@ object LogUtil {
      * 设置每个log的文件大小
      * @param logSize 文件大小 byte
      */
-    fun logSize(logSize: Long): LogUtil {
-        LogUtil.logSize = logSize
+    fun logSize(logSize: Long): LogUtils {
+        LogUtils.logSize = logSize
         return this
 
     }
@@ -187,8 +190,8 @@ object LogUtil {
      * 设置log文件目录
      * @param logDir 文件目录
      */
-    fun logDir(logDir: String): LogUtil {
-        LogUtil.logDir = logDir
+    fun logDir(logDir: String): LogUtils {
+        LogUtils.logDir = logDir
         return this
     }
 

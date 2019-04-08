@@ -1,7 +1,7 @@
 package com.mml.easyutils
 
 import com.mml.easyutils.api.WeatherService
-import com.mml.android.network.ServiceCreator
+import com.mml.java.HttpServiceUtils
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -15,7 +15,7 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
         println(
-            ServiceCreator
+            HttpServiceUtils
                 .setBaseURL(WeatherService.BASE_URL)
                 .create(WeatherService::class.java)
                 .getWeatherData(101210101)
@@ -24,7 +24,7 @@ class ExampleUnitTest {
                 .toString()
         )
         println(
-            ServiceCreator
+            HttpServiceUtils
                 .setIsUseLoggingInterceptor(true)
                 .setBaseURL(WeatherService.BASE_URL)
                 .create(WeatherService::class.java)
@@ -34,7 +34,7 @@ class ExampleUnitTest {
                 .toString()
         )
         println(
-            ServiceCreator
+            HttpServiceUtils
                 .setBaseURL(WeatherService.BASE_URL)
                 .create(WeatherService::class.java)
                 .getWeatherData(101210102).execute()

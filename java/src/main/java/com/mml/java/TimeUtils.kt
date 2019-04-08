@@ -1,4 +1,4 @@
-package com.mml.android
+package com.mml.java
 
 /**
  * 时间管理
@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Pattern
 
-object TimeUtil {
+object TimeUtils {
 
     // 格式：年－月－日 小时：分钟：秒
     private const val FORMAT_YMDHMS = "yyyy-MM-dd HH:mm:ss"
