@@ -1,6 +1,18 @@
 # EasyUtils
+- [README](README.md)
+- [更新日志](UPDATE_LOG.md)
+- [功能介绍](FUNCTION.md)
 
-
+- 2019年4月11日15:38:20
+  - 新增 java->data:AESUtils,Base64
+    - [AESUtils](.\java\src\main\java\com\mml\java\data\AESUtils.kt)
+    - [Base64](.\java\src\main\java\com\mml\java\data\Base64.kt)
+- 2019年4月8日17:05:00
+- 新增 widget
+   + ClearEditText:带清除按钮的EditText
+   + CountdownView:验证码倒计时
+   + SimpleLayout:简单的Layout
+    
 
 - 2019年4月8日12:22:46 
     - 更改文件结构

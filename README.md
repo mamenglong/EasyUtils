@@ -1,6 +1,8 @@
 # EasyUtils
 [![](https://jitpack.io/v/mamenglong/EasyUtils.svg)](https://jitpack.io/#mamenglong/EasyUtils)
+- [README](README.md)
 - [更新日志](UPDATE_LOG.md)
+- [功能介绍](FUNCTION.md)
 - 使用
   - To get a Git project into your build:
     - Gradle
@@ -67,81 +69,24 @@
             </manifest> 
         ``` 
 That's OK. Utils can still live with that. Just call
-EasyUtils.initialize(context) in your own Application:
+EasyUtils.initialize(context) in your own Application: 
+ ```java
+ public class MyOwnApplication extends Application {
+         
+             @Override
+             public void onCreate() {
+                 super.onCreate();
+                 EasyUtils.initialize(this);
+             }
+         }
+ ```
+  Make sure to call this method as early as you can. In the
+ onCreate() method of Application will be fine. And always remember to
+ use the application context as parameter. Do not use any instance of
+ activity or service as parameter, or memory leaks might happen.
 
-    ```java
-        public class MyOwnApplication extends Application {
-        
-            @Override
-            public void onCreate() {
-                super.onCreate();
-                EasyUtilsApplication.initialize(this);
-            }
-        }
-    ```
+- 介绍 
 
-Make sure to call this method as early as you can. In the onCreate() method of Application will be fine. And always remember to use the application context as parameter. Do not use any instance of activity or service as parameter, or memory leaks might happen.
+项目包括两个主要模块：android，java 
 
-- 功能
-  - Retrofit2封装
-    - 自定义方法
-      - setTimeOut(time:Long)
-      -  setBaseURL(url: String)
-      - fun setIsUseLoggingInterceptor(isUse: Boolean)
-    - 调用实例
-      ```
-            HttpService
-                  .setIsUseLoggingInterceptor(true)
-                  .setTimeOut(20L)
-                  .setBaseURL(WeatherService.BASE_URL)
-                  .create(WeatherService::class.java)
-                  .getWeatherData(101210101)
-                  .execute()
-                  .body()
-                  
-         //异步
-            HttpService
-                 .setIsUseLoggingInterceptor(true)
-                 .setTimeOut(20L)
-                 .setBaseURL(BingInterface.BingService.BASE_URL)
-                 .create(BingInterface.BingService::class.java)
-                 .getImageInfo(-1,1).enqueue(object :Callback<Images>(){
-                      override fun onFailure(call: Call<Images>,
-                      t: Throwable) {
-                         TODO("not implemented")  
-                     }
-                     override fun onResponse(call: Call<Images>, response: Response<Images>) {
-                         TODO("not implemented")  
-                     }
-              })
-      ```
-      [参考测试类](./app/src/test/java/com/mml/easyutils/ExampleUnitTest.kt)
-  - LogUtil封装
-    - 使用 
-        - LogUtil.debug(true).i(tag,msg)
-  - SharedPreferencesUtil
-    - 使用
-      - 新建类继承SharedPreferencesUtil ,并在里面声明变量
-          ```kotlin
-          class MySP(context: Context):SharedPreferencesUtil(context){
-              var age by SharedPreferenceDelegates.int()
-              var flag by SharedPreferenceDelegates.boolean()
-              //更多声明方式参照SharedPreferencesUtil
-          }
-          ```
-      - 调用 
-          ```kotlin
-           class Activity:AppCompatActivity(){
-                  override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-                      super.onCreate(savedInstanceState, persistentState)
-                      preferences.age=99
-                  }
-                  private val preferences by lazy { MySP(this) }
-                  
-              }
-          ```
-  - ResourcesUtil，FileUtil
-    - 使用参考类
-  - DeviceUtils ：设备相关方法
-  - ShellUtils：执行命令
-  - WIFIUtils:检测网络
+android包含java中的方法 java中为通用的方法
