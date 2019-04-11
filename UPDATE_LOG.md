@@ -5,8 +5,8 @@
 
 - 2019年4月11日15:38:20
   - 新增 java->data:AESUtils,Base64
-    - [AESUtils](.\java\src\main\java\com\mml\java\data\AESUtils.kt)
-    - [Base64](.\java\src\main\java\com\mml\java\data\Base64.kt)
+    - [AESUtils](./java/src/main/java/com/mml/java/data/AESUtils.kt)
+    - [Base64](./java/src/main/java/com/mml/java/data/Base64.kt)
 - 2019年4月8日17:05:00
 - 新增 widget
    + ClearEditText:带清除按钮的EditText
@@ -16,14 +16,14 @@
 
 - 2019年4月8日12:22:46 
     - 更改文件结构
-  -   新增[WIFIUtils](.\android\src\main\java\com\mml\android\utils\WIFIUtils.kt)
-    - 新增[DeviceUtils](.\android\src\main\java\com\mml\android\utils\DeviceUtils.kt)
-    - 新增[ShellUtils](.\android\src\main\java\com\mml\android\utils\ShellUtils.kt)
+  -   新增[WIFIUtils](./android/src/main/java/com/mml/android/utils/WIFIUtils.kt)
+    - 新增[DeviceUtils](./android/src/main/java/com/mml/android/utils/DeviceUtils.kt)
+    - 新增[ShellUtils](./android/src/main/java/com/mml/android/utils/ShellUtils.kt)
 - 2019-3-19 
   - 修复logutil的bug
 - 2019-3-18 
-  - 新增[FileUtil](.\android\src\main\java\com\mml\android\utils\FileUtils.kt)
-  - [LogUtil](.\android\src\main\java\com\mml\android\utils\LogUtils.kt)
-  - [SharedPreferencesUtil](.\android\src\main\java\com\mml\android\utils\SharedPreferencesUtils.kt)
-  - [ResourcesUtil](.\android\src\main\java\com\mml\android\utils\ResourcesUtils.kt)
+  - 新增[FileUtil](./android/src/main/java/com/mml/android/utils/FileUtils.kt)
+  - [LogUtil](./android/src/main/java/com/mml/android/utils/LogUtils.kt)
+  - [SharedPreferencesUtil](./android/src/main/java/com/mml/android/utils/SharedPreferencesUtils.kt)
+  - [ResourcesUtil](./android/src/main/java/com/mml/android/utils/ResourcesUtils.kt)
 - 2019-3-14 初始化
