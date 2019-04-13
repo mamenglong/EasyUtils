@@ -43,6 +43,7 @@
    + CountdownView:验证码倒计时
    +  SimpleLayout:简单的Layout 
    +  BalloonRelativeLayout:产生气泡
+  +  MYAutoCompleteTextView:带有删除和下拉的自动填充布局
 - Base64： Base64 
 - FlashLightUtils： 闪光灯， 开启、关闭闪光灯。 
 + SilentInstaller： 安装器，静默安装、卸载（仅在root过的手机上）。

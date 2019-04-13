@@ -30,5 +30,10 @@
                 android:id="@+id/showballoon"
                 android:text="显示气泡"
                 android:layout_height="wrap_content"/>
+        <com.mml.android.widget.ClearEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <com.mml.android.widget.MYAutoCompleteTextView android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
