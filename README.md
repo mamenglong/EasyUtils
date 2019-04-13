@@ -90,3 +90,14 @@ EasyUtils.initialize(context) in your own Application:
 项目包括两个主要模块：android，java 
 
 android包含java中的方法 java中为通用的方法
+
+自行添加依赖： 
+``` 
+
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
+    implementation 'androidx.core:core-ktx:1.1.0-alpha05'
+ implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+```

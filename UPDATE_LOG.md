@@ -3,6 +3,8 @@
 - [更新日志](UPDATE_LOG.md)
 - [功能介绍](FUNCTION.md)
 
+- 2019年4月12日18:58:33
+  - 新增BalloonRelativeLayout，气泡布局
 - 2019年4月11日15:38:20
   - 新增 java->data:AESUtils,Base64
     - [AESUtils](./java/src/main/java/com/mml/java/data/AESUtils.kt)

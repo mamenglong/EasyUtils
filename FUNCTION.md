@@ -41,7 +41,8 @@
 + widget
    + ClearEditText:带清除按钮的EditText
    + CountdownView:验证码倒计时
-  +  SimpleLayout:简单的Layout 
+   +  SimpleLayout:简单的Layout 
+   +  BalloonRelativeLayout:产生气泡
 - Base64： Base64 
 - FlashLightUtils： 闪光灯， 开启、关闭闪光灯。 
 + SilentInstaller： 安装器，静默安装、卸载（仅在root过的手机上）。
@@ -88,7 +89,7 @@
 - TimeUtils,常用操作 
 + RandomUtils： 随机工具类，产生随机string或数字，随机洗牌等
 - 加密：
-    - [AESUtils](.\java\src\main\java\com\mml\java\data\AESUtils.kt)
-    - [Base64](.\java\src\main\java\com\mml\java\data\Base64.kt)
+    - [AESUtils](./java/src/main/java/com/mml/java/data/AESUtils.kt)
+    - [Base64](./java/src/main/java/com/mml/java/data/Base64.kt)
     
 

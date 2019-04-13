@@ -21,7 +21,6 @@ import java.io.IOException
  * @author Long
  */
 class BitmapUtil {
-
     fun compressBitmapToBytes(filePath: String, reqWidth: Int, reqHeight: Int, quality: Int): ByteArray {
         val bitmap = getSmallBitmap(filePath, reqWidth, reqHeight)
         val baos = ByteArrayOutputStream()
