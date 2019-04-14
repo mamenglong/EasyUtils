@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.mml.android.utils.LogUtils
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,5 +49,9 @@ class MainActivity : AppCompatActivity() {
 
             mHandler.postDelayed(runnable, TIME.toLong())
         }
+
+        val arr = arrayOf("aa", "aab", "aac")
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, arr)
+        autotv.setAdapter(arrayAdapter)
     }
 }

@@ -1,5 +1,6 @@
 package com.mml.android.widget
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.Editable
@@ -13,6 +14,7 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.ViewCompat
 import com.mml.android.R
 
+
 /**
  * 项目名称：EasyUtils
  * Created by Long on 2019/4/13.
@@ -23,6 +25,7 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
     private var mClearIcon: Drawable? = null
     private var mExpendMoreIcon: Drawable? = null
     private var mExpendLessIcon: Drawable? = null
+    private var mDrawableStart: Drawable? = null
     private var mOnTouchListener: View.OnTouchListener? = null
     private var mOnFocusChangeListener: View.OnFocusChangeListener? = null
     //是否获得焦点，在输入
@@ -54,14 +57,13 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
             if (motionEvent.action == MotionEvent.ACTION_UP) {
                 SHOWEXPEND = true
                 SHOWCLOSE = false
-                dismissDropDown()
                 setIconVisible()
+                dismissDropDown()
             }
             return true
         }
         return mOnTouchListener != null && mOnTouchListener!!.onTouch(view, motionEvent)
     }
-
     /**
      * [OnFocusChangeListener]
      */
@@ -100,7 +102,20 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
         }
     }
 
-    private fun initialize(context: Context) {
+    @SuppressLint("ClickableViewAccessibility")
+    private fun initialize(context: Context, attrs: AttributeSet? = null) {
+
+        val a = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.MYAutoCompleteTextView
+        )
+        mDrawableStart = a.getDrawable(R.styleable.MYAutoCompleteTextView_drawableStart).let {
+            DrawableCompat.wrap(
+                it
+            ).apply {
+                this.setBounds(0, 0, this!!.intrinsicWidth, this.intrinsicHeight)
+            }
+        }
 
         val drawable = ContextCompat.getDrawable(context, R.drawable.ic_close_black_24dp)
 
@@ -130,6 +145,7 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
         super.setOnTouchListener(this)
         super.setOnFocusChangeListener(this)
         super.addTextChangedListener(this)
+
         ViewCompat.setBackgroundTintList(this, ContextCompat.getColorStateList(context, R.color.black60))
     }
 
@@ -143,13 +159,16 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
         mClearIcon!!.setVisible(SHOWCLOSE, false)
         mExpendMoreIcon!!.setVisible(SHOWEXPEND, false)
         mExpendLessIcon!!.setVisible(!SHOWEXPEND, false)
+        mDrawableStart?.setVisible(true, false)
         val compoundDrawables = compoundDrawables
         setCompoundDrawables(
-            compoundDrawables[0],
+            if (mDrawableStart != null) mDrawableStart
+            else compoundDrawables[0],
             compoundDrawables[1],
             Tem,
             compoundDrawables[3]
         )
+
     }
 
     constructor(context: Context) : super(context) {
@@ -157,11 +176,12 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        initialize(context)
+        initialize(context, attrs)
+
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        initialize(context)
+        initialize(context, attrs)
     }
 
     override fun setOnFocusChangeListener(onFocusChangeListener: View.OnFocusChangeListener) {
@@ -172,8 +192,5 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
         mOnTouchListener = onTouchListener
     }
 
-    override fun performClick(): Boolean {
-        return super.performClick()
-    }
 }
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MYAutoCompleteTextView">
+        <attr name="drawableStart" format="reference"/>
+        <attr name="drawablePadding" format="dimension"/>
+    </declare-styleable>
+</resources>
