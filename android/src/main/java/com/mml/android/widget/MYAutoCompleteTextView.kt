@@ -25,7 +25,6 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
     private var mClearIcon: Drawable? = null
     private var mExpendMoreIcon: Drawable? = null
     private var mExpendLessIcon: Drawable? = null
-    private var mDrawableStart: Drawable? = null
     private var mOnTouchListener: View.OnTouchListener? = null
     private var mOnFocusChangeListener: View.OnFocusChangeListener? = null
     //是否获得焦点，在输入
@@ -105,18 +104,6 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
     @SuppressLint("ClickableViewAccessibility")
     private fun initialize(context: Context, attrs: AttributeSet? = null) {
 
-        val a = context.obtainStyledAttributes(
-            attrs,
-            R.styleable.MYAutoCompleteTextView
-        )
-        mDrawableStart = a.getDrawable(R.styleable.MYAutoCompleteTextView_drawableStart).let {
-            DrawableCompat.wrap(
-                it
-            ).apply {
-                this.setBounds(0, 0, this!!.intrinsicWidth, this.intrinsicHeight)
-            }
-        }
-
         val drawable = ContextCompat.getDrawable(context, R.drawable.ic_close_black_24dp)
 
         val wrappedDrawable = DrawableCompat.wrap(drawable!!)
@@ -159,10 +146,10 @@ class MYAutoCompleteTextView : AutoCompleteTextView, View.OnTouchListener, View.
         mClearIcon!!.setVisible(SHOWCLOSE, false)
         mExpendMoreIcon!!.setVisible(SHOWEXPEND, false)
         mExpendLessIcon!!.setVisible(!SHOWEXPEND, false)
-        mDrawableStart?.setVisible(true, false)
-        val compoundDrawables = compoundDrawables
+        val compoundDrawables = compoundDrawables//left right top bottom
+        //compoundDrawablesRelative // start end top bottom
         setCompoundDrawables(
-            if (mDrawableStart != null) mDrawableStart
+            if (compoundDrawablesRelative[0] != null) compoundDrawablesRelative[0]
             else compoundDrawables[0],
             compoundDrawables[1],
             Tem,
