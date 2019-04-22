@@ -2,7 +2,7 @@ package com.mml.easyutils
 
 import android.os.Bundle
 import android.os.Handler
-import android.view.View.INVISIBLE
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 balloonRelativeLayout.visibility.let {
                     if (it == VISIBLE) {
                         showballoon.text = "显示气泡"
-                        INVISIBLE
+                        GONE
                     } else {
                         showballoon.text = "隐藏气泡"
                         balloonRelativeLayout.removeAllViews()
@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             mHandler.postDelayed(runnable, TIME.toLong())
+
         }
 
         val arr = arrayOf("aa", "aab", "aac")

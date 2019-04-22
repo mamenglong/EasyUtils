@@ -7,6 +7,7 @@
 - 2019年4月14日00:28:08
   - 新增 widget
     - [MYAutoCompleteTextView](./android/src/main/java/com/mml/android/widget/MYAutoCompleteTextView.kt):带有删除和下拉的自动填充布局
+    - 自定义view属性参考[MYAutoCompleteTextView1](./android/src/main/java/com/mml/android/widget/MYAutoCompleteTextView1.kt)
 - 2019年4月12日18:58:33
   - 新增 widget
     - [BalloonRelativeLayout](./android/src/main/java/com/mml/android/widget/BalloonRelativeLayout.kt)，气泡布局
