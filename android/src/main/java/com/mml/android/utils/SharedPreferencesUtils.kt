@@ -4,6 +4,10 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import com.mml.android.EasyUtilsApplication
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.io.ObjectInputStream
+import java.io.ObjectOutputStream
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
@@ -118,6 +122,37 @@ open class SharedPreferencesUtils(context: Context) {
 
                 override fun setValue(thisRef: SharedPreferencesUtils, property: KProperty<*>, value: Set<String>?) {
                     thisRef.preferences.edit().putStringSet(property.name, value).apply()
+                }
+            }
+
+        fun Any(defaultValue: String? = null) =
+            object : ReadWriteProperty<SharedPreferencesUtils, Any?> {
+                override fun getValue(thisRef: SharedPreferencesUtils, property: KProperty<*>): Any? {
+                    val str = thisRef.preferences.getString(property.name, defaultValue)
+                    val redStr = java.net.URLDecoder.decode(str, "UTF-8")
+                    val byteArrayInputStream = ByteArrayInputStream(
+                        redStr.toByteArray(charset("ISO-8859-1"))
+                    )
+                    val objectInputStream = ObjectInputStream(
+                        byteArrayInputStream
+                    )
+                    val obj = objectInputStream.readObject()
+                    objectInputStream.close()
+                    byteArrayInputStream.close()
+                    return obj
+                }
+
+                override fun setValue(thisRef: SharedPreferencesUtils, property: KProperty<*>, any: Any?) {
+                    val byteArrayOutputStream = ByteArrayOutputStream()
+                    val objectOutputStream = ObjectOutputStream(
+                        byteArrayOutputStream
+                    )
+                    objectOutputStream.writeObject(any)
+                    var serStr = byteArrayOutputStream.toString("ISO-8859-1")
+                    serStr = java.net.URLEncoder.encode(serStr, "UTF-8")
+                    objectOutputStream.close()
+                    byteArrayOutputStream.close()
+                    thisRef.preferences.edit().putString(property.name, serStr).apply()
                 }
             }
     }

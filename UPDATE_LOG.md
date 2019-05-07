@@ -4,6 +4,18 @@
 - [功能介绍](FUNCTION.md) 
 
 <!-- ./android/src/main/java/-->
+- 2019年5月7日23:53:37
+  - [SharedPreferencesUtil](./android/src/main/java/com/mml/android/utils/SharedPreferencesUtils.kt)
+    增加对象存储 使用方式 
+    ```kotlin
+    //定义
+    var user by SharedPreferenceDelegates.Any()
+    //使用
+    sp.user=User("nihao")
+           val ss=sp.user as User
+            log.text.append(ss.name+"\n")
+    ```
+
 - 2019年4月14日00:28:08
   - 新增 widget
     - [MYAutoCompleteTextView](./android/src/main/java/com/mml/android/widget/MYAutoCompleteTextView.kt):带有删除和下拉的自动填充布局

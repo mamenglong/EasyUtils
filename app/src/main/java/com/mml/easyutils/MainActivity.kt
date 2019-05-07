@@ -7,11 +7,15 @@ import android.view.View.VISIBLE
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.mml.android.utils.LogUtils
+import com.mml.easyutils.model.User
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
+    val sp by lazy {
+        SP(this)
+    }
     private val TIME = 100//这里默认每隔100毫秒添加一个气泡
 
     internal var mHandler = Handler()
@@ -54,5 +58,12 @@ class MainActivity : AppCompatActivity() {
         val arr = arrayOf("aa", "aab", "aac")
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, arr)
         autotv.setAdapter(arrayAdapter)
+
+
+        sp_test.setOnClickListener {
+            sp.user = User("nihao")
+            val ss = sp.user as User
+            log.text.append(ss.name + "\n")
+        }
     }
 }
