@@ -77,6 +77,10 @@ EasyUtils.initialize(context) in your own Application:
              public void onCreate() {
                  super.onCreate();
                  EasyUtils.initialize(this);
+                 //设置允许打印日志
+                 EasyUtils.debug(true);
+                 //or
+                 LogUtils.debug(true);
              }
          }
  ```
@@ -96,7 +100,7 @@ android包含java中的方法 java中为通用的方法
 
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
     implementation 'androidx.core:core-ktx:1.1.0-alpha05'
- implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'

@@ -9,9 +9,9 @@
   <p id = "android"></p>
 
 ## android 功能
-- LogUtil封装
+- LogUtils封装
   - 使用 
-      - LogUtil.debug(true).i(tag,msg)
+    -   LogUtils.debug(true).i(tag,msg)
 - SharedPreferencesUtil
   - 使用
     - 新建类继承SharedPreferencesUtil ,并在里面声明变量

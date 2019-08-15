@@ -16,11 +16,16 @@ object EasyUtilsApplication : Application() {
     /**
      * Global application context.
      */
-    var mContext: Context? = null
+    private var mContext: Context? = null
+    /**
+     * 是否debug模式
+     */
+    var isDebug:Boolean=false
 
     override fun onCreate() {
         super.onCreate()
         mContext = this
+
     }
 
     /**
@@ -35,4 +40,5 @@ object EasyUtilsApplication : Application() {
         }
         return mContext!!
     }
+    fun setContext(context: Context)= kotlin.run { mContext=context }
 }

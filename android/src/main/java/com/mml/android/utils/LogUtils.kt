@@ -6,6 +6,7 @@ package com.mml.android.utils
  * 修改时间：2019/3/18 15:45
  */
 import android.util.Log
+import com.mml.android.EasyUtilsApplication
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -20,7 +21,7 @@ object LogUtils {
     private val LEFT_BORDER = "║ "
     private val BOTTOM_BORDER =
         "╚══════════════════════════════════════════════════════════════════════════════════════════════════════════"
-    private var debug: Boolean = true//是否打印log
+    private var debug: Boolean = false//是否打印log
     private var savesd: Boolean = false//是否存log到sd卡
     private val CHUNK_SIZE = 106 //设置字节数
     private var logDir = ""//设置文件存储目录
@@ -28,6 +29,7 @@ object LogUtils {
     private val execu: ExecutorService = Executors.newFixedThreadPool(1)
 
     init {
+        debug=debug|| EasyUtilsApplication.isDebug
         initLogFile()
     }
 

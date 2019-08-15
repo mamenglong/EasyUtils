@@ -10,12 +10,17 @@ import android.content.Context
  */
 @SuppressLint("StaticFieldLeak")
 object EasyUtils {
+
     /**
      * Global application context.
      */
 
     @JvmStatic
     fun initialize(context: Context) {
-        EasyUtilsApplication.mContext = context
+        EasyUtilsApplication.setContext(context)
+    }
+    @JvmStatic
+    fun debug(isDebug:Boolean) {
+        EasyUtilsApplication.isDebug = isDebug
     }
 }
