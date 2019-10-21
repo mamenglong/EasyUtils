@@ -6,13 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-    <com.mml.android.widget.BalloonRelativeLayout
+    <com.mml.easyutils.BalloonRelativeLayout
             android:visibility="invisible"
             android:id="@+id/balloonRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-    </com.mml.android.widget.BalloonRelativeLayout>
+    </com.mml.easyutils.BalloonRelativeLayout>
     <LinearLayout android:layout_width="match_parent"
                   android:orientation="vertical"
                   android:id="@+id/line1"

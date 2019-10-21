@@ -3,6 +3,8 @@
 - [更新日志](UPDATE_LOG.md)
 - [功能介绍](FUNCTION.md) 
 
+- 19-10-21 上午9:52
+    + 将BalloonRelativeLayout移出android库,占用太大了
 <!-- ./android/src/main/java/-->
 - 2019年5月7日23:53:37
   - [SharedPreferencesUtil](./android/src/main/java/com/mml/android/utils/SharedPreferencesUtils.kt)

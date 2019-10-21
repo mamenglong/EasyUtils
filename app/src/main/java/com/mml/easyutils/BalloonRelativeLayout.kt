@@ -1,4 +1,4 @@
-package com.mml.android.widget
+package com.mml.easyutils
 
 import android.animation.*
 import android.content.Context
@@ -10,7 +10,6 @@ import android.view.animation.*
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
-import com.mml.android.R
 import java.util.*
 
 /**
