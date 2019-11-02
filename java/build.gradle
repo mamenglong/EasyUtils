@@ -7,13 +7,10 @@ project.archivesBaseName ='java'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //retrofit2
-    compileOnly 'com.squareup.retrofit2:retrofit:2.5.0'
-    compileOnly 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compileOnly 'com.squareup.retrofit2:converter-scalars:2.5.0'
-    compileOnly 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    compileOnly 'com.squareup.retrofit2:retrofit:2.6.2'
+    compileOnly 'com.squareup.retrofit2:converter-gson:2.6.2'
+    compileOnly 'com.squareup.retrofit2:converter-scalars:2.6.2'
+    compileOnly 'com.squareup.okhttp3:logging-interceptor:4.2.2'
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 }
-
-sourceCompatibility = "1.8"
-targetCompatibility = "1.8"

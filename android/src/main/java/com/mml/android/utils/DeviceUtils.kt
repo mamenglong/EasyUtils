@@ -87,7 +87,7 @@ object DeviceUtils {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     fun isAdbEnabled(): Boolean {
         return Settings.Secure.getInt(
-            EasyUtilsApplication.mContext!!.contentResolver,
+            EasyUtilsApplication.getContext().contentResolver,
             Settings.Global.ADB_ENABLED, 0
         ) > 0
     }
@@ -134,7 +134,7 @@ object DeviceUtils {
     @SuppressLint("HardwareIds")
     fun getAndroidID(): String {
         return Settings.Secure.getString(
-            EasyUtilsApplication.mContext!!.contentResolver,
+            EasyUtilsApplication.getContext().contentResolver,
             Settings.Secure.ANDROID_ID
         )
     }

@@ -53,18 +53,18 @@ object HttpServiceUtils {
     fun setIsUseLoggingInterceptor(isUse: Boolean): HttpServiceUtils {
         httpClient.addInterceptor(
             HttpLoggingInterceptor(
-                HttpLoggingInterceptor
-                    .Logger { message ->
-                        //打印retrofit日志
-                        println("RetrofitLog" + "retrofitBack = $message")
-                    }
-            )
-                .setLevel(
-                    if (isUse)
-                        HttpLoggingInterceptor.Level.BODY
-                    else
-                        HttpLoggingInterceptor.Level.NONE
-                )
+              object : HttpLoggingInterceptor.Logger {
+                  override fun log(message: String) {
+                      //打印retrofit日志
+                      println("RetrofitLog retrofitBack = $message")
+                  }
+              }
+            ).apply {
+                level=  if (isUse)
+                    HttpLoggingInterceptor.Level.BODY
+                else
+                    HttpLoggingInterceptor.Level.NONE
+            }
         )
         return this
     }
